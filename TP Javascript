@@ -1,0 +1,222 @@
+// --------------
+// TP ALGORITHMIE
+// --------------
+
+// CONSEIL 1:
+// RELIRE VOS EXERCICES FAITS EN COURS
+
+// CONSEIL 2:
+// BIEN LIRE LES ENONCES
+
+/*
+    Exercice 1
+
+    Changer la ligne indiquer pour que le console.log nous 
+    affiche le contenue de la variable x
+*/
+{
+    let x = "Hello world" //ligne a changer
+console.log(x)
+}
+
+/*
+    Exercice 2
+
+    Soit de variable x et y qui contiennent chacune un nombre.
+    Creer un algo qui affiche : x est plus grand que y, 
+    y est plus petit que x ou x est égale a si c'est le cas
+*/
+
+let x = 9
+let y = 9
+
+function maFonction(x,y){
+        if (x > y){
+        console.log ("x = " + x +" qui est plus grand a y = " + y); 
+    }
+    else if (y > x) {
+        console.log ("y = " + y +" qui est plus grand a x = " + x);
+        } else {
+             console.log ("y = " + y  +" est egal a x = " + x);
+        }
+}
+
+maFonction(x,y);
+
+/*
+    Exercice 3
+
+    Soit une variable qui contient une lettre
+    Creer un algo qui affiche dans le terminal si 
+    ce parametre est une voyelle ou une consonne.
+    (Pour simplifier on considerera que les lettres minuscules jusqu'a "e")
+    ex: "a" affiche "Je suis une voyelle"
+        "e" affiche "Je suis une voyelle"
+        "b" affiche "Je suis une consonne"
+        "c" affiche "Je suis une consonne"
+        "d" affiche "Je suis une consonne"
+*/
+let var1 = "d"
+
+switch ( var1 ){
+    case "a" :
+    case "e" :
+    //case "i" :
+    //case "o" :
+    //case "u" :
+    //case "y" :
+        console.log("je suis une voyelle");
+        break;
+    default :
+        console.log("je suis une consonne");
+}        
+
+/*
+    Exercice 4
+
+    Créer un objet avec pour clés votre nom, prenom 
+    et age (vous avez le droit de tricher pour votre age).
+    Creer un algo qui si la valeur de la clé age est supérieur à 28, 
+    affiche dans le terminal ("Je suis dans la fleur de l'age")
+    Sinon, affiche ("Je suis en train de me bonifier")
+*/
+
+let moi = {
+    prenom : "Luis",
+    nom : "Carrasqueira",
+    age : 42
+}
+
+if (moi.age>28) {
+    console.log("Je suis dans la fleur de l'age")
+} else {
+    console.log("Je suis en train de me bonifier")
+}
+
+/*
+    Exercice 5
+
+    Déclarer un array, avec plusieurs prénoms
+    ex: ['ikram', 'adline', 'amina', 'miriame']
+    Créer de manière DYNAMIQUE (utiliser une boucle), une String regroupant ces prénoms séparés par --
+    ATTENTION: le dernier prénom ne sera PAS suivi de --
+    Afficher le résultat dans le terminal
+    ex: "ikram--adline--amina--miriame"
+*/
+let prenoms = ['ikram', 'adline', 'amina', 'miriame']
+let chaine = ""
+
+for (let i = 0; i < prenoms.length;i++)
+{
+        if (i == prenoms.length - 1) {
+            chaine = chaine + prenoms[i]        }
+        else
+        {
+            chaine = chaine + prenoms[i] + "--"
+        }
+}
+console.log(chaine)
+
+/* 
+    Exercice 6
+
+    Créer une fonction qui va retourner un nouvel utilisateur sous forme d'objet
+    Elle prendra 3 paramètres, pour le prénom, le nom et l'age
+    Exemple:
+    maFonction('Kylian', 'Mbappe', 20) => {prenom: 'Kylian', nom: 'Mbappe', age:20}
+    
+*/
+let monPrenom = "Luis"
+let monNom = "Carrasqueira"
+let monAge = 42
+
+function maFonction(monPrenom , monNom, monAge){
+    let moi = {
+        prenom : monPrenom,
+        nom : monNom,
+        age : monAge
+    } 
+    console.log (moi)  
+    //return 
+}
+
+maFonction('Kylian', 'Mbappe', 20)
+
+
+/*
+    Exercice 7
+
+    Creer une fonction qui prend en parametre deux nombres x et y 
+    et qui nous retourne la division de x par y. Sauf dans le cas 
+    ou y vaut 0 on retourne "division impossible"
+*/
+let x = 0
+let y = 0
+
+function division(x, y){
+    if (y == 0)
+        { return ("division impossible")}
+    else
+        {return (x / y) }
+}
+
+division (70,0)
+/*
+Exercice 8
+
+let joueur = {
+    prenom: "Lionel",
+    nom: "Messi",
+    age: 34,
+    amis:["Neymar"]
+};
+
+Creer une fonction qui prend deux parametres un object comme ci dessus
+et un prenom et qui ajoute ce prenom dans l'array des amis. 
+La fonction retourne l'objet
+
+*/    
+
+let joueur = {
+    prenom: "Lionel",
+    nom: "Messi",
+    age: 34,
+    amis:["Neymar"]
+};
+
+function ajouteAmis ( joueur , nouveauxAmis)
+{
+    joueur.amis = nouveauxAmis
+    return joueur
+}
+
+//console.log (ajouteAmis ( joueur,"moi" ))
+
+/*
+Exercice 9 (BONUS)
+
+Même chose sauf qu'on ajoute le prenom seulement s'il n'est pas déja present dans 
+l'array des amis, si il est déja présent on retourne "Vous etes deja amis"
+
+*/
+
+let joueur = {
+    prenom: "Lionel",
+    nom: "Messi",
+    age: 34,
+    amis:["Neymar","test1","test2"]
+};
+
+function ajouteAmis ( joueur , nouveauxAmis)
+{
+    for (i=0;i<joueur.amis.length;i++){
+        if (nouveauxAmis == joueur.amis[i]){
+            return "Vous etes deja Amis"
+        }
+        else {
+            joueur.amis[i] = nouveauxAmis
+            return joueur
+        }
+    }
+}
+console.log (ajouteAmis ( joueur,"Neymar" ))
